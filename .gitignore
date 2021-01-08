@@ -1,9 +1,5 @@
-model/
 .idea/
 .vscode/
-data/
-apply_table/
-.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
