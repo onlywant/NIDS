@@ -2,3 +2,4 @@ out
 npm-debug.log
 .idea/
 package-lock.json
+node_modules/
