@@ -1,0 +1,108 @@
+<link rel="stylesheet" href="./../../assets/css/invasion.css" />
+
+<template class="task-template">
+  <section id="invasion-section" class="section js-section u-category-invasion">
+    <header class="section-header">
+      <div class="section-wrapper" id="invasion-wrapper">
+        <h1>
+          <svg class="section-icon">
+            <use xlink:href="assets/img/icons.svg#icon-windows"></use>
+          </svg>
+          <strong>
+            来做个检测吧！
+          </strong>
+        </h1>
+        <div id="selector">
+          <!-- <select id="interface" ></select> -->
+          <p>
+            请选择过滤器：<select id="filter">
+              <option value="ip and (tcp or icmp or udp)"
+                >tcp and icmp and udp</option
+              >
+              <option value="ip and tcp">tcp</option>
+              <option value="ip and icmp">icmp</option>
+              <option value="ip and udp">udp</option>
+            </select>
+          </p>
+          <p>网络接口：<select id="interface"></select></p>
+        </div>
+
+        <div class="demo-controls">
+          <button class="demo-button" id="start_sys" @click="start">
+            开始检测
+            <div class="demo-meta u-avoid-clicks">支持: Win, macOS, Linux</div>
+          </button>
+          <button class="demo-button" id="stop_sys" @click="stop">
+            停止检测
+            <div class="demo-meta u-avoid-clicks">支持: Win, macOS, Linux</div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="table">
+      <div class="table-head">
+        <table id="invasion-table-head">
+          <thead>
+            <tr>
+              <th>源ip地址</th>
+              <th>目的ip地址</th>
+              <th>协议</th>
+              <th>服务</th>
+              <th>分类</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="table-body">
+        <table id="invasion-table-body">
+          <tbody id="table_body">
+            <tr
+              v-for="(item,index) in arr_data"
+              :title="item.classification"
+              style="--color-accent: hsl(116, 30%, 36%);"
+            >
+              <td>{{ item.src_ip }}</td>
+              <td>{{ item.dst_ip }}</td>
+              <td>{{ item.ip_proto }}</td>
+              <td>{{ item.service }}</td>
+              <td>{{ item.classification }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="statistic">
+      <div class="checking">
+        <div>
+          <h1>{{num['normal']}}</h1>
+        </div>
+        <span>
+          Normal
+        </span>
+      </div>
+
+      <div class="checking">
+        <div>
+          <h1>{{num['dos']}}</h1>
+        </div>
+        <span>
+          Dos
+        </span>
+      </div>
+      <div class="checking">
+        <div>
+          <h1>{{num['probe']}}</h1>
+        </div>
+        <span>
+          Probe
+        </span>
+      </div>
+      
+    </div>
+  </section>
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script src="./assets/js/iconfont.js"></script>
+  <script src="./renderer-process/invasion/invasion.js"></script>
+</template>

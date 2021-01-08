@@ -1,0 +1,17 @@
+#table_id tbody {
+  height: 400;
+  border: solid 1px red;
+}
+#table_id td.details-control {
+  background: url("../img/jiahao.svg") no-repeat center center;
+  background-size: 20px;
+}
+#table_id tr.shown td.details-control {
+  background: url("../img/jianhao.svg") no-repeat center center;
+  background-size: 20px;
+}
+#table_id tfoot input {
+  width: 100%;
+  padding: 3px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,77 @@
+syntax = "proto3";
+option java_package = "ex.grpc";
+option objc_class_prefix = "HSW";
+package helloGRPC;
+
+service Greeter {
+  rpc start (StartMes) returns (stream Datagram);
+  rpc stop (Message) returns (Message);
+  rpc getInterfaceList (Message) returns (Interfaces);
+  rpc setInterface (Interface) returns (Message);
+  rpc setFilter (Filter) returns (Message);
+  rpc addToTrain (Id) returns (Message);
+  rpc delFromSniff (Id) returns (Message);
+  rpc queryAllFromSniff (Message) returns (Datagrams);
+  rpc trainAgain (Train) returns (stream Message);
+  rpc coverModel (Message) returns (Message);
+}
+
+message StartMes {
+  string inter = 1;
+  string filter = 2;
+}
+
+message Train{
+  bool addNew = 1;
+  int32 size = 2;
+  int32 circle = 3;
+  int32 epoch = 4;
+  float Rate = 5;   //学习率
+  float deRate = 6; //降低学习率
+}
+
+message Interface{
+  string name = 1;
+}
+
+message Interfaces{
+  repeated Interface interface = 1;
+}
+
+message Filter{
+  string name = 1;
+}
+
+message Message {
+  string mes = 1;
+}
+
+message Id{
+  int32 id = 1;
+}
+
+message Datagram {
+  int32 id = 1;
+  string src_ip = 2;
+  string dst_ip = 3;
+  string src_port = 4;
+  string dst_port = 5;
+
+  float duration = 6;
+  string ip_proto = 7;
+  string service = 8;
+  string state = 9;
+  int32 src_bytes = 10;
+  int32 dst_bytes = 11;
+  string land = 12;
+  int32 wrong_pac = 13;
+  int32 urgent_pac = 14;
+
+  string feature = 15;
+  string classification = 16;
+
+}
+
+message Datagrams{
+  repeated Datagram datagram = 1;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./../../assets/css/train.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="setting">
+          <h2>设置训练参数</h2>
+          <div class="text">
+            <div class="input" placeholder="size">
+              <input type="text" id="size" />
+            </div>
+            <div class="input" placeholder="circle">
+              <input type="text" id="circle" />
+            </div>
+            <div class="input" placeholder="epoch">
+              <input type="text" id="epoch" />
+            </div>
+            <div class="input" placeholder="rate">
+              <input type="text" id="rate" />
+            </div>
+            <div class="input" placeholder="derate">
+              <input type="text" id="derate" />
+            </div>
+            <div class="input" placeholder="other">
+              <input type="text" id="other" />
+            </div>
+          </div>
+          
+          <div class="checking">
+            
+            <input type="checkbox" id="addNew" />加入收集的样本
+          </div>
+
+          <button class="submit" type="button">
+            <p>开始训练</p>
+            <div class="loading">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <svg
+              class="checkmark"
+              width="30px"
+              height="30px"
+              stroke="white"
+              fill="none"
+            >
+              <polyline points="2,10 12,18 28,2"></polyline>
+            </svg>
+          </button>
+      </div>
+      <div class="feedback">
+
+        <div class="training">
+          <div><h3 id="text-progress">training...0%</h3></div>
+          <div id="progress">
+            <div id="bar"></div>
+          </div>
+        </div>
+
+        <div class="testing">
+          <div><h3 id="text-progress">testing...0%</h3></div>
+          <div id="progress">
+            <div id="bar"></div>
+          </div>
+<!--          <div class="result">-->
+<!--            <p>结果：<span id='text-result'></span> </p>-->
+<!--          </div>-->
+        </div>  
+        
+        <div>
+          <h3 id="dialog-reply"></h3>
+        </div>
+
+      </div>
+      <a id="close" href="javascript:window.close()">X</a>
+    </div>
+    
+  </body>
+</html>
+
+<script>
+  window.$ = window.jQuery = require("./../../node_modules/jquery/dist/jquery.js");
+</script>
+<script src="./../../renderer-process/manager/train.js"></script>

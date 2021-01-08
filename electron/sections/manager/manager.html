@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="./../../assets/css/manager.css">
+<template class="task-template">
+  <section id="manager-section" class="section js-section u-category-system">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon">
+            <use xlink:href="assets/img/icons.svg#icon-windows"></use>
+          </svg>
+          检测结果管理后台
+        </h1>
+
+        <div class="demo-controls">
+          <button class="demo-button" id="queryAllData">显示最新数据</button>
+          <button class="demo-button" id="delItems">删除所选条目</button>
+          <button class="demo-button" id="addItems">添加所选条目</button>
+          <button class="demo-button" id="trainAgain">训练分类器</button>
+        </div>
+      </div>
+    </header>
+
+    <table id="table_id" class="display">
+      <thead>
+        <tr>
+          <th>
+            all<input
+              id="checkbox_id_all"
+              name="checkbox_name_all"
+              type="checkbox"
+              value=""
+            />
+          </th>
+          <th>id</th>
+          <th>src_ip</th>
+          <th>dst_ip</th>
+          <th>proto</th>
+          <th>state</th>
+          <th>service</th>
+          <th>classification</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th>id</th>
+          <th>src_ip</th>
+          <th>dst_ip</th>
+          <th>proto</th>
+          <th>state</th>
+          <th>service</th>
+          <th>classification</th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <script src="./renderer-process/manager/manager.js"></script>
+  </section>
+</template>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/nativize.css" />
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/about.css" />
+    <link rel="stylesheet" href="assets/css/nav.css" />
+    <link rel="stylesheet" href="assets/css/section.css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="assets/css/github.css" />
+    <link rel="stylesheet" href="node_modules/datatables.net-dt/css/jquery.dataTables.min.css">
+    <link rel="import" href="sections/about.html" />
+    <link rel="import" href="sections/invasion/invasion.html" />
+    <link rel="import" href="sections/manager/manager.html" />
+  </head>
+  <body>
+    <nav class="nav js-nav">
+      <header class="nav-header">
+        <h1 class="nav-title"><strong>入侵检测系统</strong></h1>
+        <svg class="nav-header-icon icon" aria-hidden="true">
+          <use xlink:href="#icon-chilun"></use>
+        </svg>
+      </header>
+
+      <div class="nav-item u-category-invasion">
+        <h5 class="nav-category">
+          <svg class="nav-icon">
+            <use xlink:href="assets/img/icons.svg#icon-windows"></use>
+          </svg>
+          入侵检测
+        </h5>
+        <button
+          type="button"
+          id="button-invasion"
+          data-section="invasion"
+          class="nav-button"
+        >
+          <em>前台检测</em>
+        </button>
+      </div>
+
+      <div class="nav-item u-category-system">
+        <h5 class="nav-category">
+          <svg class="nav-icon">
+            <use xlink:href="assets/img/icons.svg#icon-system"></use>
+          </svg>
+          入侵管理
+        </h5>
+        <button
+          type="button"
+          id="button-manager"
+          data-section="manager"
+          class="nav-button"
+        >
+          <em>管理后台</em>
+        </button>
+      </div>
+
+      <footer class="nav-footer">
+        <button
+          type="button"
+          id="button-about"
+          data-modal="about"
+          class="nav-footer-button"
+        >
+          关于
+        </button>
+        <a
+          class="nav-footer-logo"
+          href="https://github.com"
+          aria-label="Homepage"
+        >
+          <svg class="nav-footer-icon">
+            <use xlink:href="assets/img/icons.svg#icon-love"></use>
+          </svg>
+        </a>
+      </footer>
+    </nav>
+
+    <main class="content js-content"></main>
+    <script>
+      window.$ = window.jQuery = require("./node_modules/jquery/dist/jquery.js");
+    </script>
+    <!-- <script src="./node_modules/jquery/dist/jquery.js"></script> -->
+    <script>
+      require("./assets/js/imports"); //将所有的html界面  template 为 “task-template” 的导入dom树中
+      require("./assets/js/ex-links"); //a[href] 做外链
+      require("./assets/js/nav"); //导航
+      //require('./assets/js/demo-btns');  //demo里的btn实现
+      require("./assets/js/code-blocks");
+      require("./assets/js/normalize-shortcuts");
+    </script>
+  </body>
+</html>
